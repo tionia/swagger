@@ -124,7 +124,7 @@ enum MethodColor {
 }
 
 export default function FortunePostApi() {
-  const [searchNameValue, setSearchNameValue] = useState<string>("aaa");
+  const [searchNameValue, setSearchNameValue] = useState<string>('');
 
   // const hasSearchNameFilter = Boolean(searchNameValue);
 
@@ -192,7 +192,7 @@ export default function FortunePostApi() {
       switch (columnName) {
         case 'method':
           return (
-            <div className={`py-2 rounded-lg text-center font-black text-flash-white text-xs bg-swagger-blue`}>
+            <div className={`py-2 rounded-lg text-center font-black text-flash-white text-xs w-20 bg-swagger-blue`}>
               {cellValue}
             </div>
           )
