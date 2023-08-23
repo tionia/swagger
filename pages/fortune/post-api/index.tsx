@@ -124,14 +124,14 @@ enum MethodColor {
 }
 
 export default function FortunePostApi() {
-  const [searchNameValue, setSearchNameValue] = useState<string>("aaa");
+  const [searchNameValue, setSearchNameValue] = useState<string>("");
 
   // const hasSearchNameFilter = Boolean(searchNameValue);
 
   const onSearchNameChange = useCallback((value:string) => {
     console.log(value)
     setSearchNameValue(value)
-  }, [])
+  }, [searchNameValue])
 
   type Data = typeof data[0]
 
@@ -183,7 +183,7 @@ export default function FortunePostApi() {
         </div>
       )
     },
-    []
+    [onSearchNameChange]
   )
 
   const renderCell = useCallback((row: Data, columnName: Key) => {
