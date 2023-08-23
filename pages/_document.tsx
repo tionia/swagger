@@ -1,10 +1,13 @@
+/* initial html */
 import { Html, Head, Main, NextScript } from 'next/document'
+
+
 
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
-      <body>
+      <Head/>
+      <body className='text-gray-900'>
         <Main />
         <NextScript />
       </body>

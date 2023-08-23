@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Lato';
+  src: url('/assets/fonts/Lato-Black.ttf');
+  src: url('/assets/fonts/Lato-BlackItalic.ttf');
+  src: url('/assets/fonts/Lato-Bold.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -18,10 +27,68 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+}
+
+.dropdown {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+}
+
+.swagger-ui {
+  padding: 0 2.5rem;
+}
+
+.swagger-ui,
+.swagger-ui .info a,
+.swagger-ui .info p,
+.swagger-ui .opblock-tag small {
+  font-family: 'Lato Medium', sans-serif !important; 
+}
+
+.swagger-ui .opblock-tag,
+.swagger-ui section.models h4 {
+  font-family: 'Lato', sans-serif !important; 
+}
+
+.swagger-ui .info .title,
+.swagger-ui .info .title small pre {
+  font-family: 'Lato Black', sans-serif !important; 
+}
+
+.swagger-ui .info {
+  margin: 1.75rem 0 !important;
+}
+
+.swagger-ui .info>div {
+  margin: 0 !important;
+}
+
+.swagger-ui .scheme-container {
+  border: 1px solid rgba(59,65,81,.3) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: none !important;
+}
+
+.swagger-ui section.models {
+  border-radius: 0.5rem !important;
+}
+
+.swagger-ui .servers .computed-url {
+  margin: 0.5rem 0 !important;
+}
+
+.swagger-ui .models-control:focus {
+  outline: none !important;
+}
+
+.swagger-ui section.models h4 {
+  padding-left: 20px !important;
+}
+
+.swagger-ui section.models h4:focus-visible {
+  outline: none !important;
+}
+
+.swagger-ui section.models h4:hover {
+  background: transparent !important;
+  color: #3b4151 !important;
 }

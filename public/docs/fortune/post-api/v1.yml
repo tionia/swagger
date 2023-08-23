@@ -1,0 +1,196 @@
+openapi: 3.0.3
+info:
+  title: Swagger IDN Media
+  description: API for managing Fortune post service endpoints 
+  contact:
+    email: developer@idntimes.com
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Post API project
+  url: https://github.com/IDN-Media/post-api.fortuneidn.com
+servers:
+  - url: https://post-api.{domain}/v1
+    variables:
+      domain:
+        default: fortuneidn.com
+        enum:
+          - fortuneidn.com		# Production
+          - rawonmerah.com # Development/Staging
+          - fortuneidn.local	# Local
+security:
+  - ApiKeyAuth: []
+tags:
+- name: Article
+  description: 
+    Article related endpoints
+- name: User
+  description: 
+    User related endpoints
+paths:
+  /top-article:
+    get:
+      tags:
+        - Article
+      summary: Top Article
+      description: |
+        Get an article with highest pageview that is released less than 1h ago.
+      operationId: TopArticle
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponse'
+                properties:
+                  data:
+                    $ref: '#/components/schemas/TopArticle'
+              example:
+                status: 200
+                message: 'success'
+                data:
+                  status: 'publish'
+                  title: '6 Zodiak yang Paling Humble, Disukai Banyak Orang!'
+                  table_name: 'posts'
+                  table_id: 23224
+                  visited_count: 345
+        401:
+          description: Unauthorized (Invalid API Key)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                status: 401
+                message: 'failed'
+                data: null
+                error:
+                  message: 'You are unauthorized to access this method'
+                  reason: 'unauthorized'
+                  error_user_title: null
+                  error_user_msg: 'You are unauthorized to access this method'
+        404:
+          description: Top Article not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                status: 404
+                message: 'failed'
+                data: null
+                error:
+                  message: 'Top article not found'
+                  reason: 'not_found'
+                  error_user_title: 'Not Found'
+                  error_user_msg: 'Top article not found'
+        500:
+          description: Internal Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                status: 500
+                message: 'failed'
+                data: null
+                error:
+                  message: 'Something went wrong'
+                  reason: 'internal_error'
+                  error_user_title: null
+                  error_user_msg: 'Something went wrong'
+  /top-user:
+    get:
+      tags:
+        - User
+      summary: Top User
+      description: |
+        Get an article with highest pageview that is released less than 1h ago.
+      operationId: TopUser
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponse'
+                properties:
+                  data:
+                    $ref: '#/components/schemas/TopArticle'
+              example:
+                status: 200
+                message: 'success'
+                data:
+                  status: 'publish'
+                  title: '6 Zodiak yang Paling Humble, Disukai Banyak Orang!'
+                  table_name: 'posts'
+                  table_id: 23224
+                  visited_count: 345
+  
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      name: x-api-key
+      in: header
+  schemas:
+    BaseResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+        message:
+          type: string
+          enum:
+            - success
+            - failed
+        data:
+          type: object
+          description: nullable
+          nullable: true
+    Error:
+      allOf:
+        - $ref: '#/components/schemas/BaseResponse'
+        - type: object
+          properties:
+            data:
+              type: object
+            message:
+              type: string
+            error:
+              type: object
+              properties:
+                message:
+                  type: string
+                reason:
+                  type: string
+                error_user_title:
+                  type: string
+                error_user_msg:
+                  type: string
+                validation:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+    TopArticle:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - publish
+            - draft
+            - on-hold
+            - inactive
+        title:
+          type: string
+        table_name:
+          type: string
+          default: 'posts'
+        table_id:
+          type: integer
+        visited_count:
+          type: integer
