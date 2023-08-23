@@ -116,12 +116,13 @@ const columns = [
   },
 ];
 
-enum MethodColor {
-  POST = 'bg-swagger-green',
-  GET = 'bg-swagger-blue',
-  PUT = 'bg-swagger-yellow',
-  DELETE = 'bg-swagger-red',
+const MethodColor:Record<string, string> = {
+  POST: 'bg-swagger-green',
+  GET: 'bg-swagger-blue',
+  PUT: 'bg-swagger-yellow',
+  DELETE: 'bg-swagger-red',
 }
+
 
 export default function FortunePostApi() {
   const [searchNameValue, setSearchNameValue] = useState<string>("");
@@ -192,7 +193,7 @@ export default function FortunePostApi() {
       switch (columnName) {
         case 'method':
           return (
-            <div className={`py-2 rounded-lg text-center font-black text-flash-white text-xs bg-swagger-blue`}>
+            <div className={`py-2 rounded-lg text-center font-black text-flash-white text-xs ${MethodColor[cellValue]}`}>
               {cellValue}
             </div>
           )
