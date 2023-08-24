@@ -21,7 +21,7 @@ function Card({href, title, logo, url}: ICard) {
       </div>
     }
     <Link href={href} className='block text-xl sm:text-2xl font-black break-words'>{title}</Link>
-    <Link href={url} className='text-tarnished-silver block text-xs sm:text-sm mt-1 sm:mt-2 break-words'>{url}</Link>
+    <p className='text-tarnished-silver block text-xs sm:text-sm mt-1 sm:mt-2 break-words'>{url}</p>
   </div>);
 }
 

@@ -20,6 +20,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import { ILayout } from '@/layouts/layout.types';
 import { IBreadcrumbs } from '@/components/breadcrumbs';
+import { useRouter } from 'next/router';
 const Layout = dynamic<ILayout>(() => import('@/layouts/layout'))
 const Breadcrumbs = dynamic<IBreadcrumbs>(() => import('@/components/breadcrumbs'))
 
@@ -124,6 +125,7 @@ enum MethodColor {
 }
 
 export default function FortunePostApi() {
+  const router = useRouter()
   const [searchNameValue, setSearchNameValue] = useState<string>("");
 
   // const hasSearchNameFilter = Boolean(searchNameValue);
@@ -196,10 +198,6 @@ export default function FortunePostApi() {
               {cellValue}
             </div>
           )
-        case 'endpoint':
-          return (
-            <Link href={row.url} className='hover:text-ottoman-red'>{cellValue}</Link>
-          )
         case 'be_version':
         case 'swagger_version':
           return (
@@ -231,7 +229,8 @@ export default function FortunePostApi() {
               (item) => <TableRow key={item.key} className='hover:bg-flash-white'>
                 {
                   // columnName --> loop through each item.column
-                  (columnName) => <TableCell>
+                  // router.push() behaves like href on link
+                  (columnName) => <TableCell onClick={() => router.push(item.url)} className='cursor-pointer'>
                     {renderCell(item, columnName)}
                   </TableCell>
                 }
