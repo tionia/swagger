@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>IDN SwaggerHub</title>
-        <link rel="icon" type="svg" href="/assets/images/favicon.svg" sizes="32x32" />
+        <link rel="shortcut icon" type="svg" href="/assets/images/favicon.svg" sizes="32x32" />
       </Head>
       <Component {...pageProps} />
     </>

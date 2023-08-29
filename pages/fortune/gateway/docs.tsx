@@ -8,7 +8,7 @@ import { IBreadcrumbs } from '@/components/breadcrumbs';
 import { SwaggerUIProps } from 'swagger-ui-react';
 import 'swagger-ui-react/swagger-ui.css';
 
-import versionList from '@/public/docs/fortune/post-api/versions.json';
+import versionList from '@/public/docs/fortune/gateway/versions.json';
 
 const SwaggerUI = dynamic<SwaggerUIProps>(import('swagger-ui-react'), { ssr: false });
 const Layout = dynamic<ILayout>(() => import('@/layouts/layout'))
@@ -24,8 +24,9 @@ function ApiDoc() {
 
   const specPath = `/docs${path.replace('/docs', '')}`
 
-  const [spec, setSpec] = useState<string | undefined>(`${specPath}/v1.yml`);
+  const [spec, setSpec] = useState(`${specPath}/v1.yml`);
   const [value, setValue] = useState<string | string[] | undefined>('v1') // value (variable), setValue (function for set the value of value)
+  console.log(spec)
 
   useEffect(() => { // catch the event when something is changed --> run the code inside this function
     let selectValue = version

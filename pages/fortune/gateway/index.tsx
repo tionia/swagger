@@ -7,7 +7,7 @@ const Layout = dynamic<ILayout>(() => import('@/layouts/layout'))
 const Breadcrumbs = dynamic<IBreadcrumbs>(() => import('@/components/breadcrumbs'))
 const ChangelogTable = dynamic<IChangelogTable>(() => import('@/components/changelog-table'))
 
-import changelog from '@/public/docs/fortune/post-api/changelog.json';
+import changelog from '@/public/docs/fortune/gateway/changelog.json';
 
 export default function App() {
 

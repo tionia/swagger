@@ -1,0 +1,22 @@
+[
+    {
+        "key": "1",
+        "method": "GET",
+        "endpoint": "Top Article",
+        "route": "/top-article",
+        "url": "/fortune/gateway/docs#/Article/TopArticle",
+        "be_version": "v1",
+        "swagger_version": "v1",
+        "last_updated": "August 1st, 2023"
+    },
+    {
+        "key": "2",
+        "method": "GET",
+        "endpoint": "Top User",
+        "route": "/top-user",
+        "url": "/fortune/gateway/docs#/User/TopUser",
+        "be_version": "v1",
+        "swagger_version": "v1.1",
+        "last_updated": "August 1st, 2023"
+    }
+]

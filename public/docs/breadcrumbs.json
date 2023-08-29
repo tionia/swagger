@@ -1,0 +1,82 @@
+[
+  {
+    "current_url": "/fortune",
+    "links": [
+      {
+        "title": "Fortune",
+        "url": "/fortune",
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "current_url": "/fortune/post-api",
+    "links": [
+      {
+        "title": "Fortune",
+        "url": "/fortune",
+        "is_active": false
+      },
+      {
+        "title": "Post API",
+        "url": "/fortune/post-api",
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "current_url": "/fortune/post-api/docs",
+    "links": [
+      {
+        "title": "Fortune",
+        "url": "/fortune",
+        "is_active": false
+      },
+      {
+        "title": "Post API",
+        "url": "/fortune/post-api",
+        "is_active": false
+      },
+      {
+        "title": "Docs",
+        "url": "/fortune/post-api/docs",
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "current_url": "/fortune/gateway",
+    "links": [
+      {
+        "title": "Fortune",
+        "url": "/fortune",
+        "is_active": false
+      },
+      {
+        "title": "Gateway",
+        "url": "/fortune/gateway",
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "current_url": "/fortune/gateway/docs",
+    "links": [
+      {
+        "title": "Fortune",
+        "url": "/fortune",
+        "is_active": false
+      },
+      {
+        "title": "Gateway",
+        "url": "/fortune/gateway",
+        "is_active": false
+      },
+      {
+        "title": "Docs",
+        "url": "/fortune/gateway/docs",
+        "is_active": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "key": "1",
+        "method": "GET",
+        "endpoint": "Top Article",
+        "route": "/top-article",
+        "url": "/fortune/post-api/docs#/Article/TopArticle",
+        "be_version": "v1",
+        "swagger_version": "v1",
+        "last_updated": "August 1st, 2023"
+    },
+    {
+        "key": "2",
+        "method": "GET",
+        "endpoint": "Top User",
+        "route": "/top-user",
+        "url": "/fortune/post-api/docs#/User/TopUser",
+        "be_version": "v1",
+        "swagger_version": "v1",
+        "last_updated": "August 1st, 2023"
+    },
+    {
+        "key": "3",
+        "method": "GET",
+        "endpoint": "Article Detail",
+        "route": "/article-detail",
+        "url": "/fortune/post-api/docs?version=v2#/Article/ArticleDetail",
+        "be_version": "v2",
+        "swagger_version": "v2",
+        "last_updated": "August 23st, 2023"
+    }
+]

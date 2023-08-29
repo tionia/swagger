@@ -59,8 +59,6 @@ const portals = [
   },
 ]
 
-
-
 export default function Home() {
   return (
     <Layout withHeader={false}>
